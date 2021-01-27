@@ -1,9 +1,10 @@
 package arpeggio.data;
 
 public class Student extends Person {
-
+/*
+ * A Student class used to capture demographic and level information of the student.
+ */
 	private int age;
-	private Gender gender;
 	private PianoLevel level;
 	private SchoolGrade grade;
 	
@@ -13,13 +14,11 @@ public class Student extends Person {
 	
 	public Student( String aFirstName, String aLastName, int aAge, 
 			Gender aGender, SchoolGrade aGrade, PianoLevel aLevel ) {
-		super(aFirstName, aLastName);
+		super(aFirstName, aLastName, aGender);
 		this.age = aAge;
-		this.gender = aGender;
 		this.grade = aGrade;
 		this.level = aLevel;
 	}
-	
 	
 	public int getAge() {
 		return age;
@@ -27,14 +26,6 @@ public class Student extends Person {
 
 	public void setAge(int age) {
 		this.age = age;
-	}
-
-	public Gender getGender() {
-		return gender;
-	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
 	}
 
 	public PianoLevel getLevel() {
@@ -55,32 +46,22 @@ public class Student extends Person {
 
 	@Override
 	public String stringify() {
+	/*
+	 * Postcondition: A String representation of the Student class.
+	 */
 		return  this.getFullName() + 
 				"; Age: " + this.age +
-				"; Gender: " + this.gender.getText() +
+				"; Gender: " + this.getGenderString() +
 				"; Level: " + this.level.getText() +
 				"; Grade: " + this.grade.getText();
 	}
-	
-	
-	public enum Gender {
-		M("Male"),
-		F("Female"),
-		N("Non-Binary"),
-		U("Unknown");
-		
-		private final String text;
-		
-		Gender(String aText) {
-			this.text = aText;
-		}
-		
-		public String getText() {
-			return text;
-		}
-	}
+
+	/* ********* PUBLIC ENUMS ********* */
 	
 	public enum PianoLevel {
+	/*
+	 * A Piano Level enum to capture the level the student is currently taking.
+	 */
 		PRIMER("Primer"), 
 		LEVEL_1("1"), 
 		LEVEL_2A("2A"), 
@@ -104,6 +85,9 @@ public class Student extends Person {
 	}
 	
 	public enum SchoolGrade {
+	/*
+	 * A School Grade enum to capture the grade the student is currently in or if they are an Adult.
+	 */
 		PRESCHOOL("Pre-school"), 
 		KINDERGARTEN("K"), 
 		GRADE_1("1st"), 

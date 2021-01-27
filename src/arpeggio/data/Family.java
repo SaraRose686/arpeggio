@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Family {
+/*
+ * A Family class used to capture all the Persons in the same family.
+ */
 
 	private String name;
 	private List<Person> persons;
@@ -34,6 +37,9 @@ public class Family {
 	}
 	
 	public void print() {
+	/*
+	 * Postcondition: Print the Family information to the console.
+	 */
 		System.out.println("The " + this.name + " Family");
 		
 		for(Person p : this.persons) {

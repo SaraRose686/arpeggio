@@ -1,7 +1,9 @@
 package arpeggio.data;
 
 public class Parent extends Person {
-
+/*
+ * A Parent class used to capture contact information for the parents of the students.
+ */
 	private String phone;
 	private String email;
 	
@@ -9,8 +11,8 @@ public class Parent extends Person {
 		super();
 	}
 	
-	public Parent ( String aFirstName, String aLastName, String aPhone, String aEmail) {
-		super(aFirstName, aLastName);
+	public Parent ( String aFirstName, String aLastName, Gender aGender, String aPhone, String aEmail) {
+		super(aFirstName, aLastName, aGender);
 		this.phone = aPhone;
 		this.email = aEmail;
 	}
@@ -33,6 +35,9 @@ public class Parent extends Person {
 
 	@Override
 	public String stringify() {
+	/*
+	 * Postcondition: A String representation of the Parent class.
+	 */
 		return  this.getFullName() + 
 				"; Phone: " + this.phone + 
 				"; Email: " + this.email;
